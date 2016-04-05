@@ -1,22 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'jgdavey/tslime.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-
-call vundle#end()
-" Use Vim settings, rather then Vi settings. This setting must be as early as
-" possible, as it has side effects.
+"vundle plugins set via .vimrc.bundles
 set nocompatible
 
 " Leader
