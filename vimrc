@@ -173,6 +173,20 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 " Always use vertical diffs
 set diffopt+=vertical
 
+
+let g:solarized_turncolors=256
+"execute pathogen#infect()
+
+set t_Co=16
+
+syntax on
+
+filetype plugin indent on
+colorscheme solarized
+set background=dark
+let g:solarized_contrast = "high"
+
+
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
