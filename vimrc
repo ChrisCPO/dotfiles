@@ -10,9 +10,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
+call vundle#end()
 " Use Vim settings, rather then Vi settings. This setting must be as early as
 " possible, as it has side effects.
 set nocompatible
