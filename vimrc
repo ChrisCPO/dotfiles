@@ -30,6 +30,15 @@ endif
 
 filetype plugin indent on
 
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" zoom a vim pane, <C-w>= to re-balance
+" nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+" nnoremap <leader>= :wincmd =<cr>=<cr>
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>:wincmd \|<cr>
+
 augroup vimrcEx
   autocmd!
 
@@ -129,7 +138,20 @@ nnoremap <Leader>s :call RunNearestSpec()<CR>
 nnoremap <Leader>l :call RunLastSpec()<CR>
 nnoremap <Leader>a :call RunAllSpecs()<CR>
 
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+" Plugin Vim Tmux Runner
+let g:rspec_command = "call VtrSendCommand('bundle exec rspec {spec}')"
+
+"-OPEN RUNNER-
+"new runner H
+nnoremap <leader>osrv :VtrOpenRunner {'orientation': 'h', 'percentage': 30, 'cmd': ''}<cr>
+"new runner V
+nnoremap <leader>osrs :VtrOpenRunner {'orientation': 'v', 'percentage': 30, 'cmd': ''}<cr>
+" reattach runner
+nnoremap <leader>osrr :VtrReattachRunner<cr>
+
+"irb
+nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
+"--
 
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
@@ -158,7 +180,6 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 " Always use vertical diffs
 set diffopt+=vertical
 
-
 let g:solarized_turncolors=256
 "execute pathogen#infect()
 
@@ -171,6 +192,28 @@ colorscheme solarized
 set background=dark
 let g:solarized_contrast = "high"
 
+" CURSOR info
+" redraw
+inoremap <special> <Esc> <Esc>hl
+
+" arrow keys not working correctly with tap completion
+imap <ESC>oA <ESC>ki
+imap <ESC>oB <ESC>ji
+imap <ESC>oC <ESC>li
+imap <ESC>oD <ESC>hi
+
+"no blink
+set guicursor+=i:blinkwait0
+" set guicursor+=n-v-c:blinkon0
+
+" change cursor depending on mode
+if exists('$TMUX')
+  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+else
+  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+endif
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
