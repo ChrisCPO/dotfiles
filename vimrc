@@ -173,6 +173,11 @@ nnoremap <C-l> <C-w>l
 let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
+"----- Python -----
+let python_highlight_all = 1
+
+"END python
+
 " enable rspec highlighing in ruby specs as in rails projects
 " this is weird not working?? throws error
 " autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let

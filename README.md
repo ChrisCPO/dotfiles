@@ -1,5 +1,6 @@
-thoughtbot dotfiles
-===================
+This is a modified fork of thoughtbot dotfiles
+
+Some changes are personal some are for a Linux system.
 
 Requirements
 ------------
@@ -189,6 +190,8 @@ Shell aliases and scripts:
 
 Credits
 -------
+
+thank you to [tbot](git://github.com/thoughtbot/dotfiles.git)
 
 Thank you, [contributors](https://github.com/thoughtbot/dotfiles/contributors)!
 Also, thank you to Corey Haines, Gary Bernhardt, and others for sharing your

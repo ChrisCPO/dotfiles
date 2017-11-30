@@ -8,6 +8,17 @@ git_prompt_info() {
 setopt promptsubst
 export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
 
+export PATH=~/mongodb/mongodb-linux-x86_64-ubuntu1404-2.7.2/bin:$PATH
+
+#android_sdk
+export ANDROID_HOME=~/home/chris/Android/Sdk:$PATH
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+#postman
+export PATH=~/Postman/Postman:$PATH
+
+
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
 
@@ -101,3 +112,8 @@ _load_settings "$HOME/.zsh/configs"
 
 export NVM_DIR="/home/chris/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
