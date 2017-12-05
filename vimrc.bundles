@@ -34,6 +34,7 @@ Plugin 'vim-scripts/ctags.vim'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/tComment'
 Plugin 'hdima/python-syntax'
+Plugin 'scrooloose/nerdtree'
 
 
 if filereadable(expand("~/.vimrc.bundles.local"))

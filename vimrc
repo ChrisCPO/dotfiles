@@ -141,6 +141,8 @@ nnoremap <Leader>a :call RunAllSpecs()<CR>
 " Plugin Vim Tmux Runner
 let g:rspec_command = "call VtrSendCommand('bundle exec rspec {spec}')"
 
+nnoremap \| :NERDTree<CR>
+
 "-OPEN RUNNER-
 "new runner H
 nnoremap <leader>osrv :VtrOpenRunner {'orientation': 'h', 'percentage': 30, 'cmd': ''}<cr>
