@@ -188,6 +188,7 @@ let python_highlight_all = 1
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
+setlocal spell spelllang=en_us
 
 " Always use vertical diffs
 set diffopt+=vertical
@@ -207,6 +208,9 @@ let g:solarized_contrast = "high"
 " CURSOR info
 " redraw
 inoremap <special> <Esc> <Esc>hl
+
+" javascript/React
+let g:jsx_ext_required = 0
 
 " arrow keys not working correctly with tap completion
 imap <ESC>oA <ESC>ki

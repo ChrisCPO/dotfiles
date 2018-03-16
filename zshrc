@@ -31,6 +31,8 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
+source ~/.bin/tmuxinator.zsh
+
 # makes color constants available
 autoload -U colors
 colors
