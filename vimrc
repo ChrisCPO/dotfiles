@@ -151,6 +151,9 @@ nnoremap <leader>osrs :VtrOpenRunner {'orientation': 'v', 'percentage': 30, 'cmd
 " reattach runner
 nnoremap <leader>osrr :VtrReattachRunner<cr>
 
+" send highlighted lines to runner
+vnoremap <leader>t :VtrSendLinesToRunner<cr>
+
 "irb
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 "--
