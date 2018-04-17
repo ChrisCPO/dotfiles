@@ -144,7 +144,9 @@ nnoremap <Leader>a :call RunAllSpecs()<CR>
 " Plugin Vim Tmux Runner
 let g:rspec_command = "call VtrSendCommand('bundle exec rspec {spec}')"
 
-nnoremap \| :NERDTree<CR>
+"NERDTree
+map \| :NERDTreeFind<CR>
+let g:NERDTreeWinSize=50
 
 "-OPEN RUNNER-
 "new runner H
