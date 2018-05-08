@@ -94,9 +94,9 @@ if executable('ag')
 endif
 
 " Color scheme
-colorscheme github
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+" colorscheme github
+" highlight NonText guibg=#060606
+" highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Make it obvious where 80 characters is
 set textwidth=80
@@ -202,17 +202,16 @@ setlocal spell spelllang=en_us
 " Always use vertical diffs
 set diffopt+=vertical
 
-let g:solarized_turncolors=256
 "execute pathogen#infect()
-
+"
 set t_Co=16
 
-syntax on
-
 filetype plugin indent on
-colorscheme solarized
+
 set background=dark
+let g:solarized_termcolors = 256
 let g:solarized_contrast = "high"
+colorscheme solarized
 
 " CURSOR info
 " redraw
@@ -230,15 +229,31 @@ imap <ESC>oD <ESC>hi
 "no blink
 set guicursor+=i:blinkwait0
 " set guicursor+=n-v-c:blinkon0
+"
+" Changing cursor shape per mode MAC_OS
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+if exists('$TMUX')
+    " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
+    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+else
+    let &t_SI .= "\<Esc>[5 q"
+    let &t_EI .= "\<Esc>[2 q"
+    autocmd VimLeave * silent !echo -ne "\033[0 q"
+endif
 
 " change cursor depending on mode
-if exists('$TMUX')
-  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
-  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-else
-  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-endif
+" if exists('$TMUX')
+"   au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+"   au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+"   au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+" else
+"   au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+" endif
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
