@@ -229,8 +229,9 @@ imap <ESC>oD <ESC>hi
 "no blink
 set guicursor+=i:blinkwait0
 " set guicursor+=n-v-c:blinkon0
-"
-" Changing cursor shape per mode MAC_OS
+
+
+"------ Changing cursor shape per mode MAC_OS
 " 1 or 0 -> blinking block
 " 2 -> solid block
 " 3 -> blinking underscore
@@ -245,7 +246,7 @@ else
     let &t_EI .= "\<Esc>[2 q"
     autocmd VimLeave * silent !echo -ne "\033[0 q"
 endif
-
+" Linix
 " change cursor depending on mode
 " if exists('$TMUX')
 "   au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
@@ -254,6 +255,26 @@ endif
 " else
 "   au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
 " endif
+"
+"
+"----- inserts [#SID] into your commit message,
+" assuming your branches follow the naming scheme: SID_description
+function! InsertStoryId()
+  let sid_command = "mi"                           " mark current position
+
+  let sid_command = sid_command."\/On branch\<CR>" " move to line with branch name
+  let sid_command = sid_command."ww"               " move to first char of story #
+  let sid_command = sid_command."yt_"              " yank the story #
+  let sid_command = sid_command."\/^#\<CR>gg"      " move to first #... line
+  let sid_command = sid_command."O"                " add blank line in insert mode
+  let sid_command = sid_command."[#\<esc>pA] "     " insert [#SID]
+  let sid_command = sid_command."\<esc>"           " switch to normal mode
+
+  exec "normal! ".sid_command
+endfunction
+autocmd FileType gitcommit nnoremap <leader>i :Sid<CR>
+
+command! Sid :call InsertStoryId()
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
