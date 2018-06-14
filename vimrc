@@ -81,6 +81,12 @@ set expandtab
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -246,6 +252,7 @@ else
     let &t_EI .= "\<Esc>[2 q"
     autocmd VimLeave * silent !echo -ne "\033[0 q"
 endif
+
 " Linix
 " change cursor depending on mode
 " if exists('$TMUX')
