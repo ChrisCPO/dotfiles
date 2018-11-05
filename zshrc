@@ -119,3 +119,10 @@ export NVM_DIR="/home/chris/.nvm"
 
 . $HOME/.asdf/completions/asdf.bash
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/chris/.nvm/versions/node/v5.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/chris/.nvm/versions/node/v5.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/chris/.nvm/versions/node/v5.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/chris/.nvm/versions/node/v5.0.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
