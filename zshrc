@@ -120,3 +120,5 @@ export NVM_DIR="/home/chris/.nvm"
 #
 # . $HOME/.asdf/completions/asdf.bash
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"

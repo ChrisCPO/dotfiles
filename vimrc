@@ -253,6 +253,10 @@ else
     autocmd VimLeave * silent !echo -ne "\033[0 q"
 endif
 
+" debugging
+" insert puts statements and line number https://twitter.com/Benoit_Tgt/status/1037988875476586496
+nnoremap <Leader>pt oputs "#" * 60<C-M>puts "<C-R>=expand("%") . ':' . line(".")<CR>"<C-M>puts "*" * 60<esc>
+
 " Linix
 " change cursor depending on mode
 " if exists('$TMUX')
