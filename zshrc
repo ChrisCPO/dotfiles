@@ -8,6 +8,10 @@ git_prompt_info() {
 setopt promptsubst
 export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
 
+#rbenv MACos
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 #android_sdk
 # export ANDROID_HOME=~/home/chris/Android/Sdk:$PATH
 # export PATH=${PATH}:${ANDROID_HOME}/tools

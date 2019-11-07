@@ -29,9 +29,10 @@
   path = .gitconfig.local
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [fetch]
   prune = true
 [user]
-	email = ChrisCPO@gmail.com
-	name = ChrisCPO
-	signingkey = E94829E0
+  email = ChrisCPO@gmail.com
+  name = ChrisCPO
+  signingkey = E94829E0
