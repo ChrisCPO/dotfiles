@@ -108,6 +108,9 @@ endif
 set textwidth=80
 set colorcolumn=+1
 
+" Replace tildes with new lines to view X12
+map <leader>X    :%s/\~/\~\r/g<CR>
+
 " Numbers
 set number
 set numberwidth=5
@@ -252,6 +255,9 @@ else
     let &t_EI .= "\<Esc>[2 q"
     autocmd VimLeave * silent !echo -ne "\033[0 q"
 endif
+
+" Replace tildes with new lines to view X12
+map <leader>X    :%s/\~/\~\r/g<CR>
 
 " debugging
 " insert puts statements and line number https://twitter.com/Benoit_Tgt/status/1037988875476586496
