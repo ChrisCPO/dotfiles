@@ -236,13 +236,29 @@ imap <ESC>oD <ESC>hi
 set guicursor+=i:blinkwait0
 " set guicursor+=n-v-c:blinkon0
 
-
-
 " change cursor depending on mode
 if exists('$TMUX')
-  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
-  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+ " set insert mode to a gray vertical line
+   let &t_SI .= "\<esc>Ptmux;\<esc>\<esc>[6 q\<esc>\\"
+   let &t_SI .= "\<esc>Ptmux;\<esc>\<esc>]12;gray\x7\<esc>\\"
+   " set normal mode to a gray block
+   let &t_EI .= "\<esc>Ptmux;\<esc>\<esc>[2 q\<esc>\\"
+   let &t_EI .= "\<esc>Ptmux;\<esc>\<esc>]12;gray\x7\<esc>\\"
+   " set replace mode to an gray underscore
+   let &t_SR .= "\<esc>Ptmux;\<esc>\<esc>[4 q\<esc>\\"
+   let &t_SR .= "\<esc>Ptmux;\<esc>\<esc>]12;gray\x7\<esc>\\"
+
+   " initialize cursor shape/color on startup (silent !echo approach doesn't seem to work for tmux)
+   augroup ResetCursorShape
+      au!
+      "autocmd VimEnter * startinsert | stopinsert
+      autocmd VimEnter * normal! :startinsert :stopinsert
+      "autocmd VimEnter * :normal :startinsert :stopinsert
+   augroup END
+
+   " reset cursor when leaving tmux
+   autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[2 q\033\\"
+   autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033]12;gray\007\033\\"
 else
   au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
 endif
