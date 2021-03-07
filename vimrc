@@ -1,3 +1,7 @@
+" if filereadable(expand("~/.vimrc.bundles"))
+"   source ~/.vimrc.bundles
+" endif
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -215,11 +219,6 @@ set t_Co=16
 
 syntax on
 
-filetype plugin indent on
-colorscheme solarized
-set background=dark
-let g:solarized_contrast = "high"
-
 " CURSOR info
 " redraw
 inoremap <special> <Esc> <Esc>hl
@@ -236,6 +235,8 @@ imap <ESC>oD <ESC>hi
 "no blink
 set guicursor+=i:blinkwait0
 " set guicursor+=n-v-c:blinkon0
+
+
 
 " change cursor depending on mode
 if exists('$TMUX')
