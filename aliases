@@ -17,6 +17,9 @@ alias gw="github_workflow"
 # git
 alias gci="git pull --rebase && rake && git push"
 
+# heroku
+alias h="heroku"
+
 # Bundler
 alias b="bundle"
 

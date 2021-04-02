@@ -207,6 +207,7 @@ let python_highlight_all = 1
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 setlocal spell spelllang=en_us
+set spell
 
 " Always use vertical diffs
 set diffopt+=vertical
@@ -217,7 +218,7 @@ set t_Co=16
 
 filetype plugin indent on
 
-set background=dark
+set background=light
 let g:solarized_termcolors = 256
 let g:solarized_contrast = "high"
 colorscheme solarized
@@ -262,6 +263,13 @@ map <leader>X    :%s/\~/\~\r/g<CR>
 " debugging
 " insert puts statements and line number https://twitter.com/Benoit_Tgt/status/1037988875476586496
 nnoremap <Leader>pt oputs "#" * 60<C-M>puts "<C-R>=expand("%") . ':' . line(".")<CR>"<C-M>puts "*" * 60<esc>
+
+" EasyAlign
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Linix
 " change cursor depending on mode
