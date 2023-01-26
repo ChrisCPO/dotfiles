@@ -40,7 +40,7 @@ autocmd VimResized * :wincmd =
 " nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 " nnoremap <leader>= :wincmd =<cr>=<cr>
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
-nnoremap <leader>= :wincmd =<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>:wincmd =<cr>
 
 augroup vimrcEx
   autocmd!
@@ -108,8 +108,14 @@ endif
 set textwidth=80
 set colorcolumn=+1
 
-" Replace tildes with new lines to view X12
+" FORMAT commands
+" x12: Replace tildes with new lines to view
 map <leader>X    :%s/\~/\~\r/g<CR>
+
+" json: Replace tildes with new lines to view
+function! FormatJSON()
+:%!python -m json.tool
+endfunction
 
 " Numbers
 set number
@@ -219,7 +225,7 @@ set t_Co=16
 filetype plugin indent on
 
 set background=light
-let g:solarized_termcolors = 256
+" let g:solarized_termcolors = 256
 let g:solarized_contrast = "high"
 colorscheme solarized
 
