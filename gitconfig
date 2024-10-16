@@ -29,7 +29,7 @@
   path = .gitconfig.local
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
+	gpgsign = false
 [fetch]
   prune = true
 [user]

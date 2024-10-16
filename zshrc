@@ -13,7 +13,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # nodenv
-eval "$(nodenv init -)"
+eval "$(nodenv init - zsh)"
 
 
 #android_sdk
@@ -128,14 +128,7 @@ export NVM_DIR="/home/chris/.nvm"
 #
 # . $HOME/.asdf/completions/asdf.bash
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@13/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 alias python=/usr/bin/python3

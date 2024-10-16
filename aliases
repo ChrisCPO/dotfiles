@@ -12,7 +12,16 @@ alias -g L='| wc -l'
 alias -g ONE="| awk '{ print \$1}'"
 alias e="$EDITOR"
 alias v="$VISUAL"
-alias gw="github_workflow"
+
+# workflow(dbcli) formally known as github_workflow
+alias gw="dbcli"
+
+alias gwg="gw github"
+alias gwc="gw github commit -m \"replace me\" && git commit --amend"
+alias gwfp="git push -f && gwg open"
+
+alias gwl="gw linear"
+alias gwls="gwl start -b" #... -b, --branch-name=BRANCH_NAME
 
 # git
 alias gci="git pull --rebase && rake && git push"

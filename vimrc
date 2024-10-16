@@ -253,10 +253,8 @@ set guicursor+=i:blinkwait0
 " 3 -> blinking underscore
 " 4 -> solid underscore
 if exists('$TMUX')
-    " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
-    let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[5 q\<Esc>\\"
-    let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
-    autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+    let &t_SI = "\e[6 q"
+    let &t_EI = "\e[2 q"
 else
     let &t_SI .= "\<Esc>[5 q"
     let &t_EI .= "\<Esc>[2 q"
