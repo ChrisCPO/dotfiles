@@ -42,6 +42,7 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'vim-scripts/tComment'
 Plugin 'thalesmello/lkml.vim'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'github/copilot.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
